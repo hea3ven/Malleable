@@ -1,0 +1,16 @@
+[
+{
+  "modid": "metals",
+  "name": "Metals",
+  "description": "Metals.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "https://github.com/hea3ven/Metals",
+  "updateUrl": "",
+  "authorList": ["Hea3veN"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": ["required-after:Forge@[${forgeversion},)"]
+}
+]

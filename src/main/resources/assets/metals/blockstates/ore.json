@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "metal=copper": { "model": "metals:ore" },
+        "metal=tin": { "model": "metals:ore" },
+        "metal=cobalt": { "model": "metals:ore_nether" },
+        "metal=tungsten": { "model": "metals:ore_end" }
+    }
+}

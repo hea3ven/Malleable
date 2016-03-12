@@ -1,0 +1,20 @@
+{
+    "variants": {
+        "facing=north,metal=copper": { "model": "metals:metal_furnace" },
+        "facing=south,metal=copper": { "model": "metals:metal_furnace", "y": 180 },
+        "facing=west,metal=copper":  { "model": "metals:metal_furnace", "y": 270 },
+        "facing=east,metal=copper":  { "model": "metals:metal_furnace", "y": 90 },
+        "facing=north,metal=bronze": { "model": "metals:metal_furnace" },
+        "facing=south,metal=bronze": { "model": "metals:metal_furnace", "y": 180 },
+        "facing=west,metal=bronze":  { "model": "metals:metal_furnace", "y": 270 },
+        "facing=east,metal=bronze":  { "model": "metals:metal_furnace", "y": 90 },
+        "facing=north,metal=steel": { "model": "metals:metal_furnace" },
+        "facing=south,metal=steel": { "model": "metals:metal_furnace", "y": 180 },
+        "facing=west,metal=steel":  { "model": "metals:metal_furnace", "y": 270 },
+        "facing=east,metal=steel":  { "model": "metals:metal_furnace", "y": 90 },
+        "facing=north,metal=cobalt": { "model": "metals:metal_furnace" },
+        "facing=south,metal=cobalt": { "model": "metals:metal_furnace", "y": 180 },
+        "facing=west,metal=cobalt":  { "model": "metals:metal_furnace", "y": 270 },
+        "facing=east,metal=cobalt":  { "model": "metals:metal_furnace", "y": 90 }
+    }
+}
