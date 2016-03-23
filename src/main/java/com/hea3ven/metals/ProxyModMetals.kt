@@ -225,7 +225,7 @@ class ProxyModMetals : ProxyModBase(ModMetals.MODID) {
 	}
 
 	override fun registerGuis() {
-		addGui(GuiMetalFurnace.id, object : ISimpleGuiHandler {
+		addGui(ModMetals.guiIdMetalFurnace, object : ISimpleGuiHandler {
 			override fun createContainer(player: EntityPlayer, world: World, pos: BlockPos): Container {
 				return WorldHelper.getTile<TileMetalFurnace>(world, pos).getContainer(player.inventory);
 			}

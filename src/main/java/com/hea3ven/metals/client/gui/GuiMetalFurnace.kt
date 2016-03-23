@@ -32,7 +32,6 @@ class GuiMetalFurnace(playerInv: InventoryPlayer, val te: TileMetalFurnace) : Gu
 	}
 
 	companion object {
-		const val id = 1;
 		val BG_RESOURCE = ResourceLocation("metals:textures/gui/container/metal_furnace.png");
 	}
 

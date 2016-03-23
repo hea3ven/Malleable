@@ -28,6 +28,8 @@ class ModMetals {
 		const val VERSION = "1.8.9-1.0.0"
 		const val DEPENDENCIES = "required-after:Forge@[11.15.1.1723,)"
 
+		const val guiIdMetalFurnace = 1;
+
 		init {
 			Bootstrap.init()
 		}

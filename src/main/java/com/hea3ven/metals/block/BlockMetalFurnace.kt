@@ -20,7 +20,8 @@ import net.minecraft.util.EnumFacing
 import net.minecraft.world.IBlockAccess
 import net.minecraft.world.World
 
-class BlockMetalFurnace : BlockMachine(Material.iron, ModMetals.MODID, GuiMetalFurnace.id), BlockMetal {
+class BlockMetalFurnace : BlockMachine(Material.iron, ModMetals.MODID,
+		ModMetals.guiIdMetalFurnace), BlockMetal {
 
 	override val metals: Array<Metal> = arrayOf(Metal.COPPER, Metal.BRONZE, Metal.STEEL, Metal.COBALT)
 
