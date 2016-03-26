@@ -11,8 +11,7 @@ object MetalFurnaceRecipes {
 
 	private val recipes: MutableMap<Pair<ItemStack, ItemStack?>, MetalFurnaceRecipe> = hashMapOf()
 
-	fun addRecipe(tier: Int, output: ItemStack, oreInput1: String, sizeInput1: Int, oreInput2: String? = null,
-			sizeInput2: Int = 0) {
+	fun addRecipe(output: ItemStack, oreInput1: String, sizeInput1: Int, oreInput2: String? = null, sizeInput2: Int = 0) {
 		for (it in OreDictionary.getOres(oreInput1)) {
 			var input1 = it.copy()
 			input1.stackSize = sizeInput1
@@ -20,7 +19,7 @@ object MetalFurnaceRecipes {
 				OreDictionary.getOres(oreInput2).forEach {
 					var input2 = it.copy();
 					input2.stackSize = sizeInput2;
-					addRecipe(tier, input1, input2, output);
+					addRecipe(input1, input2, output);
 				}
 			} else {
 
@@ -28,50 +27,49 @@ object MetalFurnaceRecipes {
 		}
 	}
 
-	fun addRecipe(tier: Int, output: ItemStack, input1: ItemStack, input2: ItemStack? = null) {
-		recipes.put(input1 to input2, MetalFurnaceRecipe(tier, input1, input2, output));
+	fun addRecipe(output: ItemStack, input1: ItemStack, input2: ItemStack? = null) {
+		recipes.put(input1 to input2, MetalFurnaceRecipe(input1, input2, output));
 	}
 
-	fun addMetalRecipe(tier: Int, metal: Metal) {
+	fun addMetalRecipe(metal: Metal) {
 		for (it in OreDictionary.getOres(metal.oreName)) {
 			var input1: ItemStack = it.copy()!!;
 			if (metal == Metal.GOLD)
-				MetalFurnaceRecipes.addRecipe(tier, ItemStack(Items.gold_nugget), input1);
+				MetalFurnaceRecipes.addRecipe(ItemStack(Items.gold_nugget), input1);
 			else
-				MetalFurnaceRecipes.addRecipe(tier, ModMetals.proxy.nugget.createStack(metal, 3), input1);
+				MetalFurnaceRecipes.addRecipe(ModMetals.proxy.nugget.createStack(metal, 3), input1);
 		}
 		for (it in OreDictionary.getOres(metal.ingotName)) {
 			var input1 = it.copy();
 			input1.stackSize = 9;
 			if (metal == Metal.IRON)
-				MetalFurnaceRecipes.addRecipe(tier, ItemStack(Blocks.iron_block), input1);
+				MetalFurnaceRecipes.addRecipe(ItemStack(Blocks.iron_block), input1);
 			else if (metal == Metal.GOLD)
-				MetalFurnaceRecipes.addRecipe(tier, ItemStack(Blocks.gold_block), input1);
+				MetalFurnaceRecipes.addRecipe(ItemStack(Blocks.gold_block), input1);
 			else
-				MetalFurnaceRecipes.addRecipe(tier, ModMetals.proxy.block.createStack(metal), input1);
+				MetalFurnaceRecipes.addRecipe(ModMetals.proxy.block.createStack(metal), input1);
 		}
 		for (it in OreDictionary.getOres(metal.nuggetName)) {
 			var input1 = it.copy();
 			input1.stackSize = 9;
 			if (metal == Metal.IRON)
-				MetalFurnaceRecipes.addRecipe(tier, ItemStack(Items.iron_ingot), input1);
+				MetalFurnaceRecipes.addRecipe(ItemStack(Items.iron_ingot), input1);
 			else if (metal == Metal.GOLD)
-				MetalFurnaceRecipes.addRecipe(tier, ItemStack(Items.gold_ingot), input1);
+				MetalFurnaceRecipes.addRecipe(ItemStack(Items.gold_ingot), input1);
 			else
-				MetalFurnaceRecipes.addRecipe(tier, ModMetals.proxy.ingot.createStack(metal), input1);
+				MetalFurnaceRecipes.addRecipe(ModMetals.proxy.ingot.createStack(metal), input1);
 		}
 	}
 
-	fun addAlloyRecipe(tier: Int, inputMetal1: Metal, sizeInput1: Int, inputMetal2: Metal, sizeInput2: Int,
-			outputMetal: Metal, sizeOutput: Int) {
+	fun addAlloyRecipe(inputMetal1: Metal, sizeInput1: Int, inputMetal2: Metal, sizeInput2: Int, outputMetal: Metal, sizeOutput: Int) {
 		for (oreStack1 in OreDictionary.getOres(inputMetal1.oreName)) {
 			var input1 = oreStack1.copy();
 			input1.stackSize = sizeInput1;
 			for (oreStack2 in OreDictionary.getOres(inputMetal2.oreName)) {
 				var input2 = oreStack2.copy();
 				input2.stackSize = sizeInput2;
-				MetalFurnaceRecipes.addRecipe(tier,
-						ModMetals.proxy.nugget.createStack(outputMetal, sizeOutput * 3), input1, input2);
+				MetalFurnaceRecipes.addRecipe(ModMetals.proxy.nugget.createStack(outputMetal, sizeOutput * 3),
+						input1, input2);
 			}
 		}
 		for (oreStack1 in OreDictionary.getOres(inputMetal1.blockName)) {
@@ -80,8 +78,8 @@ object MetalFurnaceRecipes {
 			for (oreStack2 in OreDictionary.getOres(inputMetal2.blockName)) {
 				var input2 = oreStack2.copy();
 				input2.stackSize = sizeInput2;
-				MetalFurnaceRecipes.addRecipe(tier,
-						ModMetals.proxy.block.createStack(outputMetal, sizeOutput), input1, input2);
+				MetalFurnaceRecipes.addRecipe(ModMetals.proxy.block.createStack(outputMetal, sizeOutput),
+						input1, input2);
 			}
 		}
 		for (oreStack1 in OreDictionary.getOres(inputMetal1.ingotName)) {
@@ -90,8 +88,8 @@ object MetalFurnaceRecipes {
 			for (oreStack2 in OreDictionary.getOres(inputMetal2.ingotName)) {
 				var input2 = oreStack2.copy();
 				input2.stackSize = sizeInput2;
-				MetalFurnaceRecipes.addRecipe(tier,
-						ModMetals.proxy.ingot.createStack(outputMetal, sizeOutput), input1, input2);
+				MetalFurnaceRecipes.addRecipe(ModMetals.proxy.ingot.createStack(outputMetal, sizeOutput),
+						input1, input2);
 			}
 		}
 		for (oreStack1 in OreDictionary.getOres(inputMetal1.nuggetName)) {
@@ -100,19 +98,19 @@ object MetalFurnaceRecipes {
 			for (oreStack2 in OreDictionary.getOres(inputMetal2.nuggetName)) {
 				var input2 = oreStack2.copy();
 				input2.stackSize = sizeInput2;
-				MetalFurnaceRecipes.addRecipe(tier,
-						ModMetals.proxy.nugget.createStack(outputMetal, sizeOutput), input1, input2);
+				MetalFurnaceRecipes.addRecipe(ModMetals.proxy.nugget.createStack(outputMetal, sizeOutput),
+						input1, input2);
 			}
 		}
 		for (oreStack in OreDictionary.getOres(outputMetal.ingotName)) {
 			var input1 = oreStack.copy();
 			input1.stackSize = 9;
-			MetalFurnaceRecipes.addRecipe(tier, ModMetals.proxy.block.createStack(outputMetal), input1);
+			MetalFurnaceRecipes.addRecipe(ModMetals.proxy.block.createStack(outputMetal), input1);
 		}
 		for (oreStack in OreDictionary.getOres(outputMetal.nuggetName)) {
 			var input1 = oreStack.copy();
 			input1.stackSize = 9;
-			MetalFurnaceRecipes.addRecipe(tier, ModMetals.proxy.ingot.createStack(outputMetal), input1);
+			MetalFurnaceRecipes.addRecipe(ModMetals.proxy.ingot.createStack(outputMetal), input1);
 		}
 	}
 
@@ -158,7 +156,7 @@ object MetalFurnaceRecipes {
 	}
 }
 
-class MetalFurnaceRecipe(val tier: Int, val input1: ItemStack, val input2: ItemStack?, val output: ItemStack) {
+class MetalFurnaceRecipe(val input1: ItemStack, val input2: ItemStack?, val output: ItemStack) {
 
 	fun smelt(stack1: ItemStack?, stack2: ItemStack?): ItemStack {
 		var s1 = stack1

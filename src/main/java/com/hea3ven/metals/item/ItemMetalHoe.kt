@@ -6,12 +6,5 @@ import net.minecraft.item.ItemAxe
 import net.minecraft.item.ItemHoe
 import net.minecraft.item.ItemStack
 
-class ItemMetalHoe(val metal: Metal) : ItemHoe(metal.toolMaterial) {
-
-	override fun getColorFromItemStack(stack: ItemStack?, renderPass: Int): Int {
-		if (renderPass == 1)
-			return metal.color
-		else
-			return super.getColorFromItemStack(stack, renderPass)
-	}
+class ItemMetalHoe(override val metal: Metal) : ItemHoe(metal.toolMaterial), ItemMetalSingle {
 }

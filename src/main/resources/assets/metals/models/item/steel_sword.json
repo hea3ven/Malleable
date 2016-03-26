@@ -1,5 +1,5 @@
 {
-    "parent": "builtin/generated",
+    "parent": "item/handheld",
     "textures": {
         "layer0": "metals:items/sword_handle",
         "layer1": "metals:items/sword_head"

@@ -138,7 +138,7 @@ if (tasks.findByPath('compileKotlin') != null) {
 		if (mainFile.exists()) {
 			def content = mainFile.text.
 					replaceAll(/val VERSION = "[^"]*"/, 'val VERSION = "' + project.version + '"').
-					replaceAll(/Forge@\[[^,]*,\)/, 'Forge@[' + project.minecraft.forgeVersion + ',)')
+					replaceAll(/Forge@\[[^,]*,\)/, 'Forge@[12.16.0.1811,)')
 			mainFile.withWriter { w -> w << content }
 		}
 	}

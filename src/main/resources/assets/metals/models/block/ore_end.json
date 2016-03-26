@@ -1,4 +1,5 @@
 {
+    "parent": "minecraft:block/block",
     "textures": {
         "all": "blocks/end_stone",
         "overlay": "metals:blocks/ore_overlay"

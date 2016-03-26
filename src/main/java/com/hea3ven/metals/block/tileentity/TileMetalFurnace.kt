@@ -22,76 +22,65 @@ import net.minecraftforge.items.IItemHandler
 import net.minecraftforge.items.ItemHandlerHelper
 
 class TileMetalFurnace : TileMachine(), ITickable, IItemHandler, IUpdateHandler {
-	val tier = -1;
-		get() {
-			if (field == -1) {
-				val state = world!!.getBlockState(pos)
-				field = (state.block as BlockMetalFurnace).getTier(state)
-			}
-			return field
-		}
+	private val slots = arrayOfNulls<ItemStack>(4)
 
-	private val slots = arrayOfNulls<ItemStack>(4);
-
-	var progress = 0;
-	var fuel = 0;
-	var fuelCapacity = 1;
+	var progress = 0
+	var fuel = 0
+	var fuelCapacity = 1
 
 	override fun update() {
 		if (!world.isRemote) {
 			if (isBurning() && canSmelt()) {
-				progress++;
+				progress++
 				if (progress >= MAX_PROGRESS) {
-					progress = 0;
-					smeltItems();
+					progress = 0
+					smeltItems()
 				}
 			}
 
 			if (isBurning())
-				fuel--;
+				fuel--
 
 			if (!isBurning() && canSmelt()) {
-				burnFuel();
+				burnFuel()
 			}
 		}
 	}
 
 	private fun canSmelt(): Boolean {
 		if (slots[0] == null && slots[1] == null)
-			return false;
+			return false
 
-		val recipe = MetalFurnaceRecipes.getRecipe(slots[0], slots[1], true);
+		val recipe = MetalFurnaceRecipes.getRecipe(slots[0], slots[1], true)
 		if (recipe == null)
-			return false;
-		if (recipe.tier > tier)
-			return false;
+			return false
 		if (slots[3] == null)
-			return true;
+			return true
 		if (!slots[3]!!.isItemEqual(recipe.output))
-			return false;
-		val resultSize = slots[3]!!.stackSize + recipe.output.stackSize;
-		return resultSize <= 64 && resultSize <= slots[3]!!.getMaxStackSize();
-		//		return resultSize <= getInventoryStackLimit() && resultSize <= slots[3]!!.getMaxStackSize();
+			return false
+		val resultSize = slots[3]!!.stackSize + recipe.output.stackSize
+		return resultSize <= 64 && resultSize <= slots[3]!!.getMaxStackSize()
+		//		return resultSize <= getInventoryStackLimit() && resultSize <= slots[3]!!.getMaxStackSize()
 	}
 
 	private fun smeltItems() {
-		val result = MetalFurnaceRecipes.smelt(slots[0], slots[1]);
+		val result = MetalFurnaceRecipes.smelt(slots[0], slots[1])
 		if (slots[0] != null && slots[0]!!.stackSize <= 0)
-			slots[0] = null;
+			slots[0] = null
 		if (slots[1] != null && slots[1]!!.stackSize <= 0)
-			slots[1] = null;
+			slots[1] = null
 
 		if (slots[3] == null)
-			slots[3] = result;
+			slots[3] = result
 		else {
-			slots[3]!!.stackSize += result!!.stackSize;
+			slots[3]!!.stackSize += result!!.stackSize
 		}
 	}
 
 	private fun isBurning() = fuel > 0
 
 	private fun burnFuel() {
-		val stack = slots[2];
+		val stack = slots[2]
 		if (stack != null) {
 			if ( stack.item == Items.coal && stack.metadata == 0) {
 				stack.stackSize--
@@ -110,7 +99,7 @@ class TileMetalFurnace : TileMachine(), ITickable, IItemHandler, IUpdateHandler 
 	}
 
 	override fun writeToNBT(compound: NBTTagCompound) {
-		super.writeToNBT(compound);
+		super.writeToNBT(compound)
 
 		compound.setInteger("Progress", progress)
 		compound.setInteger("Fuel", fuel)
@@ -123,25 +112,25 @@ class TileMetalFurnace : TileMachine(), ITickable, IItemHandler, IUpdateHandler 
 					this.appendTag(NBTTagCompound().apply {
 						setByte("Slot", i.toByte())
 						slot.writeToNBT(this)
-					});
+					})
 				}
 			}
-		});
+		})
 	}
 
 	override fun readFromNBT(compound: NBTTagCompound) {
-		super.readFromNBT(compound);
+		super.readFromNBT(compound)
 
 		progress = compound.getInteger("Progress")
 		fuel = compound.getInteger("Fuel")
 		fuelCapacity = compound.getInteger("FuelCapacity")
 
-		val slotsNbt = compound.getTagList("Slots", Constants.NBT.TAG_COMPOUND);
+		val slotsNbt = compound.getTagList("Slots", Constants.NBT.TAG_COMPOUND)
 		for (i in 0..slotsNbt.tagCount() - 1) {
-			val slotNbt = slotsNbt.getCompoundTagAt(i);
-			val slot = slotNbt!!.getByte("Slot");
+			val slotNbt = slotsNbt.getCompoundTagAt(i)
+			val slot = slotNbt!!.getByte("Slot")
 			if (0 <= slot && slot < slots.size) {
-				slots[slot.toInt()] = ItemStack.loadItemStackFromNBT(slotNbt);
+				slots[slot.toInt()] = ItemStack.loadItemStackFromNBT(slotNbt)
 			}
 		}
 	}
@@ -180,7 +169,7 @@ class TileMetalFurnace : TileMachine(), ITickable, IItemHandler, IUpdateHandler 
 	}
 
 	override fun getStackInSlot(slot: Int): ItemStack? {
-		return slots[slot];
+		return slots[slot]
 	}
 
 	override fun insertItem(slot: Int, stack: ItemStack?, simulate: Boolean): ItemStack? {
@@ -249,17 +238,17 @@ class TileMetalFurnace : TileMachine(), ITickable, IItemHandler, IUpdateHandler 
 	}
 
 	override fun getField(id: Int) = when (id) {
-		FIELD_PROGRESS -> progress;
-		FIELD_FUEL -> fuel;
-		FIELD_FUELCAPACITY -> fuelCapacity;
-		else -> 0;
+		FIELD_PROGRESS -> progress
+		FIELD_FUEL -> fuel
+		FIELD_FUELCAPACITY -> fuelCapacity
+		else -> 0
 	}
 
 	override fun setField(id: Int, value: Int) {
 		when (id) {
-			FIELD_PROGRESS -> progress = value;
-			FIELD_FUEL -> fuel = value;
-			FIELD_FUELCAPACITY -> fuelCapacity = value;
+			FIELD_PROGRESS -> progress = value
+			FIELD_FUEL -> fuel = value
+			FIELD_FUELCAPACITY -> fuelCapacity = value
 		}
 	}
 
@@ -267,11 +256,11 @@ class TileMetalFurnace : TileMachine(), ITickable, IItemHandler, IUpdateHandler 
 
 
 	companion object {
-		const val MAX_PROGRESS = 400;
+		const val MAX_PROGRESS = 400
 
-		const val FIELD_PROGRESS = 0;
-		const val FIELD_FUEL = 1;
-		const val FIELD_FUELCAPACITY = 2;
+		const val FIELD_PROGRESS = 0
+		const val FIELD_FUEL = 1
+		const val FIELD_FUELCAPACITY = 2
 	}
 }
 
