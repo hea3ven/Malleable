@@ -279,21 +279,12 @@ class ProxyModMetals : ProxyModBase(ModMetals.MODID) {
 		MetalFurnaceRecipes.addMetalRecipe(Metal.COPPER)
 		MetalFurnaceRecipes.addAlloyRecipe(Metal.COPPER, 3, Metal.TIN, 1, Metal.BRONZE, 2)
 		MetalFurnaceRecipes.addMetalRecipe(Metal.IRON)
-		for (stack in OreDictionary.getOres("oreIron")) {
-			MetalFurnaceRecipes.addRecipe(stack, ItemStack(Items.coal), nugget.createStack(Metal.IRON))
-		}
-		for (stack in OreDictionary.getOres("blockIron")) {
-			MetalFurnaceRecipes.addRecipe(stack, ItemStack(Blocks.coal_block), block.createStack(Metal.STEEL))
-			MetalFurnaceRecipes.addRecipe(stack, ItemStack(Items.coal, 9), block.createStack(Metal.STEEL))
-		}
-		for (stack in OreDictionary.getOres("ingotIron")) {
-			MetalFurnaceRecipes.addRecipe(stack, ItemStack(Items.coal), ingot.createStack(Metal.STEEL))
-		}
-		for (stack in OreDictionary.getOres("nuggetIron")) {
-			MetalFurnaceRecipes.addRecipe(ItemHandlerHelper.copyStackWithSize(stack, 9),
-					ItemStack(Items.coal),
-					ingot.createStack(Metal.STEEL))
-		}
+		MetalFurnaceRecipes.addAlloyRecipe(Metal.STEEL, 1, Metal.ItemType.INGOT, Metal.IRON, 1,
+				Metal.ItemType.INGOT, ItemStack(Items.coal))
+		MetalFurnaceRecipes.addAlloyRecipe(Metal.STEEL, 1, Metal.ItemType.INGOT, Metal.IRON, 9,
+				Metal.ItemType.INGOT, ItemStack(Blocks.coal_block))
+		MetalFurnaceRecipes.addAlloyRecipe(Metal.STEEL, 1, Metal.ItemType.BLOCK, Metal.IRON, 9,
+				Metal.ItemType.BLOCK, ItemStack(Blocks.coal_block))
 		MetalFurnaceRecipes.addMetalRecipe(Metal.COBALT)
 		MetalFurnaceRecipes.addMetalRecipe(Metal.TUNGSTEN)
 		MetalFurnaceRecipes.addAlloyRecipe(Metal.STEEL, 3, Metal.COBALT, 1, Metal.FERCO_STEEL, 2)

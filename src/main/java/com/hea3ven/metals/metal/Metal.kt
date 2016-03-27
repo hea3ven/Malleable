@@ -114,8 +114,73 @@ class Metal(
 		return metalName;
 	}
 
+	fun getOreStack() = when (this) {
+		IRON -> ItemStack(Blocks.iron_ore)
+		GOLD -> ItemStack(Blocks.gold_ore)
+		else -> {
+			if (oreName != null)
+				ModMetals.proxy.ore.createStack(this)
+			else
+				throw IllegalArgumentException(name)
+		}
+	}
+
+	fun getBlockStack() = when (this) {
+		IRON -> ItemStack(Blocks.iron_block)
+		GOLD -> ItemStack(Blocks.gold_block)
+		else -> {
+			if (ModMetals.proxy.block.metals.contains(this))
+				ModMetals.proxy.block.createStack(this)
+			else
+				throw IllegalArgumentException(name)
+		}
+	}
+
+	fun getIngotStack() = when (this) {
+		IRON -> ItemStack(Items.iron_ingot)
+		GOLD -> ItemStack(Items.gold_ingot)
+		else -> {
+			if (ModMetals.proxy.ingot.metals.contains(this))
+				ModMetals.proxy.ingot.createStack(this)
+			else
+				throw IllegalArgumentException(name)
+		}
+	}
+
+	fun getNuggetStack() = when (this) {
+		GOLD -> ItemStack(Items.gold_nugget)
+		else -> {
+			if (ModMetals.proxy.nugget.metals.contains(this))
+				ModMetals.proxy.nugget.createStack(this)
+			else
+				throw IllegalArgumentException(name)
+		}
+	}
+
+	fun getStack(type: ItemType) = when (type) {
+		ItemType.ORE -> getOreStack()
+		ItemType.BLOCK -> getBlockStack()
+		ItemType.INGOT -> getIngotStack()
+		ItemType.NUGGET -> getNuggetStack()
+		else -> throw IllegalArgumentException("type")
+	}
+
+	fun getOreDictName(type: ItemType) = when (type) {
+		ItemType.ORE -> oreName
+		ItemType.BLOCK -> blockName
+		ItemType.INGOT -> ingotName
+		ItemType.NUGGET -> nuggetName
+		else -> throw IllegalArgumentException("type")
+	}
+
 	override fun compareTo(other: Metal): Int {
 		return if (this == other) 0 else this.name!!.compareTo(other.name!!);
 	}
 
+	enum class ItemType {
+		ORE,
+		BLOCK,
+		INGOT,
+		NUGGET
+	}
 }
