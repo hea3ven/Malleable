@@ -23,11 +23,13 @@ import net.minecraft.inventory.Container
 import net.minecraft.inventory.EntityEquipmentSlot
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
+import net.minecraft.item.crafting.CraftingManager
 import net.minecraft.item.crafting.FurnaceRecipes
 import net.minecraft.util.math.BlockPos
 import net.minecraft.world.IBlockAccess
 import net.minecraft.world.World
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 import net.minecraftforge.fml.common.registry.GameRegistry
 import net.minecraftforge.fml.relauncher.Side
@@ -253,6 +255,7 @@ class ProxyModMetals : ProxyModBase(ModMetals.MODID) {
 
 	override fun registerRecipes() {
 		removeIngotSmeltingRecipes()
+		removeDiamondItemsRecipes()
 		FurnaceRecipes.instance().addSmeltingRecipe(nugget.createStack(Metal.COPPER, 3),
 				ingot.createStack(Metal.COPPER), 0.7F)
 		for (recipe in toolsAndArmorRecipes)
@@ -270,6 +273,20 @@ class ProxyModMetals : ProxyModBase(ModMetals.MODID) {
 			} else if (entry.value.item == Items.gold_ingot) {
 				recipes.remove(entry.key)
 			}
+		}
+	}
+
+	private fun removeDiamondItemsRecipes() {
+		val diamondItems = arrayOf(Items.diamond_axe, Items.diamond_boots, Items.diamond_chestplate,
+				Items.diamond_helmet, Items.diamond_hoe, Items.diamond_leggings, Items.diamond_pickaxe,
+				Items.diamond_shovel, Items.diamond_sword)
+		val recipeList = CraftingManager.getInstance().recipeList!!
+		for (recipe in ArrayList(recipeList)) {
+			if(recipe.recipeOutput != null && recipe.recipeOutput.item in diamondItems)
+				recipeList.remove(recipe)
+		}
+		for(item in diamondItems){
+			item.creativeTab = null
 		}
 	}
 
