@@ -5,6 +5,7 @@ import com.hea3ven.metals.item.crafting.MetalFurnaceRecipes
 import com.hea3ven.tools.commonutils.inventory.GenericContainer
 import com.hea3ven.tools.commonutils.inventory.IUpdateHandler
 import com.hea3ven.tools.commonutils.tileentity.TileMachine
+import net.minecraft.block.state.IBlockState
 import net.minecraft.entity.player.InventoryPlayer
 import net.minecraft.init.Blocks
 import net.minecraft.init.Items
@@ -15,6 +16,8 @@ import net.minecraft.nbt.NBTTagCompound
 import net.minecraft.nbt.NBTTagList
 import net.minecraft.util.EnumFacing
 import net.minecraft.util.ITickable
+import net.minecraft.util.math.BlockPos
+import net.minecraft.world.World
 import net.minecraftforge.common.capabilities.Capability
 import net.minecraftforge.common.util.Constants
 import net.minecraftforge.items.CapabilityItemHandler
@@ -28,9 +31,13 @@ class TileMetalFurnace : TileMachine(), ITickable, IItemHandler, IUpdateHandler 
 	var fuel = 0
 	var fuelCapacity = 1
 
+	override fun shouldRefresh(world: World, pos: BlockPos, oldState: IBlockState, newSate: IBlockState)
+			= oldState.block != newSate.block
+
 	override fun update() {
 		if (!world.isRemote) {
-			if (isBurning() && canSmelt()) {
+			val litOrig = isBurning()
+			if (litOrig && canSmelt()) {
 				progress++
 				if (progress >= MAX_PROGRESS) {
 					progress = 0
@@ -43,6 +50,11 @@ class TileMetalFurnace : TileMachine(), ITickable, IItemHandler, IUpdateHandler 
 
 			if (!isBurning() && canSmelt()) {
 				burnFuel()
+			}
+
+			val lit = isBurning()
+			if (litOrig != lit) {
+				world.setBlockState(pos, world.getBlockState(pos).withProperty(BlockMetalFurnace.LIT, lit), 3)
 			}
 		}
 	}

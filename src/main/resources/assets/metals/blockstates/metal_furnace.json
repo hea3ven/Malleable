@@ -1,8 +1,26 @@
 {
-    "variants": {
-        "facing=north": { "model": "metals:metal_furnace" },
-        "facing=south": { "model": "metals:metal_furnace", "y": 180 },
-        "facing=west":  { "model": "metals:metal_furnace", "y": 270 },
-        "facing=east":  { "model": "metals:metal_furnace", "y": 90 }
-    }
+	"forge_marker": 1,
+	"defaults": {
+		"model": "metals:metal_furnace"
+	},
+	"variants": {
+		"lit": {
+			"true": {
+				"textures": {
+					"front": "metals:blocks/metal_furnace_on"
+				}
+			},
+			"false": {
+				"textures": {
+					"front": "metals:blocks/metal_furnace"
+				}
+			}
+		},
+		"facing": {
+			"north": {"y": 0},
+			"east": {"y": 90},
+			"south": {"y": 180},
+			"west": {"y": 270}
+		}
+	}
 }
