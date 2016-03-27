@@ -236,8 +236,12 @@ class ProxyModMetals : ProxyModBase(ModMetals.MODID) {
 		addItemColors(ItemMetalBase.colorHandler, nugget, ingot)
 		addItemColors(object : IItemColor {
 			override fun getColorFromItemstack(stack: ItemStack, tintIndex: Int)
-					= if (tintIndex == 1) (stack.item as ItemMetal).getMetal(stack).color else 0
+					= if (tintIndex == 1) (stack.item as ItemMetal).getMetal(stack).color else -1
 		}, tools)
+		addItemColors(object : IItemColor {
+			override fun getColorFromItemstack(stack: ItemStack, tintIndex: Int)
+					= (stack.item as ItemMetal).getMetal(stack).color
+		}, armors)
 	}
 
 	override fun registerGuis() {
@@ -282,10 +286,10 @@ class ProxyModMetals : ProxyModBase(ModMetals.MODID) {
 				Items.diamond_shovel, Items.diamond_sword)
 		val recipeList = CraftingManager.getInstance().recipeList!!
 		for (recipe in ArrayList(recipeList)) {
-			if(recipe.recipeOutput != null && recipe.recipeOutput.item in diamondItems)
+			if (recipe.recipeOutput != null && recipe.recipeOutput.item in diamondItems)
 				recipeList.remove(recipe)
 		}
-		for(item in diamondItems){
+		for (item in diamondItems) {
 			item.creativeTab = null
 		}
 	}

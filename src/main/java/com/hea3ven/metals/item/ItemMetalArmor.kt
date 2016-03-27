@@ -6,25 +6,20 @@ import net.minecraft.inventory.EntityEquipmentSlot
 import net.minecraft.item.ItemArmor
 import net.minecraft.item.ItemStack
 
-class ItemMetalArmor(val metal: Metal, slot: EntityEquipmentSlot) : ItemArmor(metal.armorMaterial, -1, slot) {
+class ItemMetalArmor(override val metal: Metal, slot: EntityEquipmentSlot)
+		: ItemArmor(metal.armorMaterial, -1, slot), ItemMetalSingle {
+	override fun getArmorTexture(stack: ItemStack, entity: Entity, slot: EntityEquipmentSlot, type: String?)
+			= when {
+		type == "overlay" -> "metals:textures/models/armor/base_armor_1_overlay.png"
+		slot != EntityEquipmentSlot.LEGS -> "metals:textures/models/armor/base_armor_1.png"
+		else -> "metals:textures/models/armor/base_armor_2.png"
+	}
 
-//	override fun getColorFromItemStack(stack: ItemStack, renderPass: Int): Int {
-//		if (renderPass == 0)
-//			return metal.color
-//		else
-//			return super.getColorFromItemStack(stack, renderPass)
-//	}
-//
-//	override fun getColor(stack: ItemStack): Int {
-//		return getColorFromItemStack(stack, 0)
-//	}
+	override fun hasColor(stack: ItemStack?): Boolean {
+		return true
+	}
 
-//	override fun getArmorTexture(stack: ItemStack?, entity: Entity?, slot: Int, type: String?): String? {
-//		if (type == "overlay")
-//			return "metals:textures/models/armor/base_armor_1_overlay.png"
-//		if (slot != 2)
-//			return "metals:textures/models/armor/base_armor_1.png"
-//		else
-//			return "metals:textures/models/armor/base_armor_2.png"
-//	}
+	override fun getColor(stack: ItemStack?): Int {
+		return metal.color
+	}
 }
