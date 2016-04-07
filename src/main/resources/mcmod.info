@@ -4,13 +4,13 @@
   "name": "Metals",
   "description": "Metals.",
   "version": "${version}",
-  "mcversion": "${mcversion}",
+  "mcversion": "${version_mc}",
   "url": "https://github.com/hea3ven/Metals",
   "updateUrl": "",
   "authorList": ["Hea3veN"],
   "credits": "",
   "logoFile": "",
   "screenshots": [],
-  "dependencies": ["required-after:Forge@[${forgeversion},)"]
+  "dependencies": ["required-after:Forge@[${version_forge},)"]
 }
 ]
