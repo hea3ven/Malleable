@@ -1,6 +1,7 @@
 package com.hea3ven.metals.metal
 
 import com.hea3ven.metals.ModMetals
+import com.hea3ven.metals.ProxyModMetals
 import com.hea3ven.metals.item.ItemBlockMetal
 import net.minecraft.init.Blocks
 import net.minecraft.init.Items
@@ -65,6 +66,9 @@ class Metal(
 						SoundEvents.item_armor_equip_iron), (25 shl 16) + (35 shl 8) + 25, null,
 				"blockMushetSteel", "ingotMushetSteel", "nuggetMushetSteel", 0, 0, 0, 0, null);
 
+		val values = arrayOf(IRON, COPPER, TIN, GOLD, BRONZE, STEEL, COBALT, FERCO_STEEL, TUNGSTEN,
+				MUSHET_STEEL)
+
 		fun initVanillaMetals() {
 			// ToolMaterial.IRON.maxUses = 2048
 			ReflectionHelper.setPrivateValue(Item.ToolMaterial::class.java, Item.ToolMaterial.IRON, 2048, 6);
@@ -107,6 +111,14 @@ class Metal(
 			chestItem.setMaxDamage(mat.getDurability(EntityEquipmentSlot.CHEST));
 			leggingItem.setMaxDamage(mat.getDurability(EntityEquipmentSlot.LEGS));
 			bootsItem.setMaxDamage(mat.getDurability(EntityEquipmentSlot.FEET));
+		}
+
+		fun initToolRepairMaterials() {
+			for (metal in values) {
+				if (metal.toolMaterial == null || metal.toolMaterial.ordinal < 5)
+					continue
+				metal.toolMaterial.setRepairItem(ModMetals.proxy.ingot.createStack(metal))
+			}
 		}
 	}
 
