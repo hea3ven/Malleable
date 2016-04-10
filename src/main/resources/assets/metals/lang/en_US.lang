@@ -1,0 +1,94 @@
+tile.metals.ore.copper.name=Copper Ore
+tile.metals.ore.tin.name=Tin Ore
+tile.metals.ore.cobalt.name=Cobalt Ore
+tile.metals.ore.tungsten.name=Tungsten Ore
+
+tile.metals.blockMetal.copper.name=Block of Copper
+tile.metals.blockMetal.tin.name=Block of Tin
+tile.metals.blockMetal.bronze.name=Block of Bronze
+tile.metals.blockMetal.steel.name=Block of Steel
+tile.metals.blockMetal.cobalt.name=Block of Cobalt
+tile.metals.blockMetal.fercosteel.name=Block of Ferco Steel
+tile.metals.blockMetal.tungsten.name=Block of Tungsten
+tile.metals.blockMetal.mushetsteel.name=Block of Mushet Steel
+
+tile.metals.metalFurnace.name=Metal Furnace
+
+item.metals.nugget.copper.name=Copper Nugget
+item.metals.nugget.tin.name=Tin Nugget
+item.metals.nugget.bronze.name=Bronze Nugget
+item.metals.nugget.iron.name=Iron Nugget
+item.metals.nugget.steel.name=Steel Nugget
+item.metals.nugget.cobalt.name=Cobalt Nugget
+item.metals.nugget.fercosteel.name=Ferco Steel Nugget
+item.metals.nugget.tungsten.name=Tungsten Nugget
+item.metals.nugget.mushetsteel.name=Mushet Steel Nugget
+
+item.metals.ingot.copper.name=Copper Ingot
+item.metals.ingot.tin.name=Tin Ingot
+item.metals.ingot.bronze.name=Bronze Ingot
+item.metals.ingot.steel.name=Steel Ingot
+item.metals.ingot.cobalt.name=Cobalt Ingot
+item.metals.ingot.fercosteel.name=Ferco Steel Ingot
+item.metals.ingot.tungsten.name=Tungsten Ingot
+item.metals.ingot.mushetsteel.name=Mushet Steel Ingot
+
+item.metals.bronzePickaxe.name=Bronze Pickaxe
+item.metals.bronzeShovel.name=Bronze Shovel
+item.metals.bronzeAxe.name=Bronze Axe
+item.metals.bronzeHoe.name=Bronze Hoe
+item.metals.bronzeSword.name=Bronze Sword
+item.metals.bronzeHelmet.name=Bronze Helmet
+item.metals.bronzeChestplate.name=Bronze Chestplate
+item.metals.bronzeLeggings.name=Bronze Leggings
+item.metals.bronzeBoots.name=Bronze Boots
+
+item.metals.steelPickaxe.name=Steel Pickaxe
+item.metals.steelShovel.name=Steel Shovel
+item.metals.steelAxe.name=Steel Axe
+item.metals.steelHoe.name=Steel Hoe
+item.metals.steelSword.name=Steel Sword
+item.metals.steelHelmet.name=Steel Helmet
+item.metals.steelChestplate.name=Steel Chestplate
+item.metals.steelLeggings.name=Steel Leggings
+item.metals.steelBoots.name=Steel Boots
+
+item.metals.cobaltPickaxe.name=Cobalt Pickaxe
+item.metals.cobaltShovel.name=Cobalt Shovel
+item.metals.cobaltAxe.name=Cobalt Axe
+item.metals.cobaltHoe.name=Cobalt Hoe
+item.metals.cobaltSword.name=Cobalt Sword
+item.metals.cobaltHelmet.name=Cobalt Helmet
+item.metals.cobaltChestplate.name=Cobalt Chestplate
+item.metals.cobaltLeggings.name=Cobalt Leggings
+item.metals.cobaltBoots.name=Cobalt Boots
+
+item.metals.fercosteelPickaxe.name=Ferco Steel Pickaxe
+item.metals.fercosteelShovel.name=Ferco Steel Shovel
+item.metals.fercosteelAxe.name=Ferco Steel Axe
+item.metals.fercosteelHoe.name=Ferco Steel Hoe
+item.metals.fercosteelSword.name=Ferco Steel Sword
+item.metals.fercosteelHelmet.name=Ferco Steel Helmet
+item.metals.fercosteelChestplate.name=Ferco Steel Chestplate
+item.metals.fercosteelLeggings.name=Ferco Steel Leggings
+item.metals.fercosteelBoots.name=Ferco Steel Boots
+
+item.metals.tungstenPickaxe.name=Tungsten Pickaxe
+item.metals.tungstenShovel.name=Tungsten Shovel
+item.metals.tungstenAxe.name=Tungsten Axe
+item.metals.tungstenHoe.name=Tungsten Hoe
+item.metals.tungstenSword.name=Tungsten Sword
+item.metals.tungstenHelmet.name=Tungsten Helmet
+item.metals.tungstenChestplate.name=Tungsten Chestplate
+item.metals.tungstenLeggings.name=Tungsten Leggings
+item.metals.tungstenBoots.name=Tungsten Boots
+
+item.metals.mushetsteelPickaxe.name=Mushet Steel Pickaxe
+item.metals.mushetsteelShovel.name=Mushet Steel Shovel
+item.metals.mushetsteelAxe.name=Mushet Steel Axe
+item.metals.mushetsteelHoe.name=Mushet Steel Hoe
+item.metals.mushetsteelSword.name=Mushet Steel Sword
+item.metals.mushetsteelHelmet.name=Mushet Steel Helmet
+item.metals.mushetsteelChestplate.name=Mushet Steel Chestplate
+item.metals.mushetsteelLeggings.name=Mushet Steel Leggings
+item.metals.mushetsteelBoots.name=Mushet Steel Boots

@@ -102,8 +102,8 @@ class ProxyModMetals : ProxyModBase(ModMetals.MODID) {
 	private val armors: MutableSet<Item> = mutableSetOf()
 
 	override fun registerBlocks() {
-		addBlock(ore, "ore", ItemBlockMetal::class.java)
-		addBlock(block, "block_metal", ItemBlockMetal::class.java)
+		addBlock(ore, "ore", ItemBlockMetal(ore))
+		addBlock(block, "block_metal", ItemBlockMetal(block))
 		addBlock(metalFurnace, "metal_furnace")
 	}
 
