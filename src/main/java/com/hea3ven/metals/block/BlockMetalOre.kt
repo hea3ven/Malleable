@@ -7,7 +7,7 @@ import net.minecraft.block.material.Material
 import net.minecraft.block.properties.IProperty
 import net.minecraft.util.BlockRenderLayer
 
-class BlockMetalOre : BlockMetalBase(Material.rock, ORES) {
+class BlockMetalOre : BlockMetalBase(Material.ROCK, ORES) {
 
 	init {
 		soundType = SoundType.STONE

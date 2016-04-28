@@ -6,7 +6,7 @@ import net.minecraft.block.SoundType
 import net.minecraft.block.material.Material
 import net.minecraft.util.BlockRenderLayer
 
-class BlockMetalBlock : BlockMetalBase(Material.iron, BLOCKS) {
+class BlockMetalBlock : BlockMetalBase(Material.IRON, BLOCKS) {
 
 	init {
 		soundType = SoundType.METAL

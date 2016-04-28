@@ -12,7 +12,6 @@ import com.hea3ven.metals.metal.Metal
 import com.hea3ven.metals.util.getMetalRecipes
 import com.hea3ven.metals.world.WorldGeneratorOre
 import com.hea3ven.tools.commonutils.inventory.ISimpleGuiHandler
-import com.hea3ven.tools.commonutils.item.crafting.SimpleRecipeBuilder
 import com.hea3ven.tools.commonutils.mod.ProxyModBase
 import com.hea3ven.tools.commonutils.util.WorldHelper
 import net.minecraft.client.gui.Gui
@@ -72,29 +71,29 @@ class ProxyModMetals : ProxyModBase(ModMetals.MODID) {
 		setUnlocalizedName("ore")
 		setHardness(3.0F)
 		setResistance(5.0F)
-		setCreativeTab(CreativeTabs.tabBlock)
+		setCreativeTab(CreativeTabs.BUILDING_BLOCKS)
 	}
 
 	val block: BlockMetalBlock = BlockMetalBlock().apply {
 		setUnlocalizedName("blockMetal")
 		setHardness(5.0F)
 		setResistance(10.0F)
-		setCreativeTab(CreativeTabs.tabBlock)
+		setCreativeTab(CreativeTabs.BUILDING_BLOCKS)
 	}
 	val metalFurnace: BlockMetalFurnace = BlockMetalFurnace().apply {
 		unlocalizedName = "metalFurnace"
 		setHardness(3.5F)
-		setCreativeTab(CreativeTabs.tabBlock)
+		setCreativeTab(CreativeTabs.BUILDING_BLOCKS)
 	}
 
 	val nugget = ItemMetalBase(ItemMetalBase.NUGGETS).apply {
 		setUnlocalizedName("nugget")
-		creativeTab = CreativeTabs.tabMaterials
+		creativeTab = CreativeTabs.MATERIALS
 	}
 
 	val ingot = ItemMetalBase(ItemMetalBase.INGOTS).apply {
 		setUnlocalizedName("ingot")
-		creativeTab = CreativeTabs.tabMaterials
+		creativeTab = CreativeTabs.MATERIALS
 	}
 
 	private val tools: MutableSet<Item> = mutableSetOf()
@@ -118,39 +117,39 @@ class ProxyModMetals : ProxyModBase(ModMetals.MODID) {
 				Metal.MUSHET_STEEL)) {
 			tools.add(addItem(ItemMetalPickaxe(metal).apply {
 				setUnlocalizedName("pickaxe" + metal.name)
-				setCreativeTab(CreativeTabs.tabTools)
+				setCreativeTab(CreativeTabs.TOOLS)
 			}, metal.name + "_pickaxe"))
 			tools.add(addItem(ItemMetalShovel(metal).apply {
 				setUnlocalizedName("shovel" + metal.name)
-				setCreativeTab(CreativeTabs.tabTools)
+				setCreativeTab(CreativeTabs.TOOLS)
 			}, metal.name + "_shovel"))
 			tools.add(addItem(ItemMetalSword(metal).apply {
 				setUnlocalizedName("sword" + metal.name)
-				setCreativeTab(CreativeTabs.tabCombat)
+				setCreativeTab(CreativeTabs.COMBAT)
 			}, metal.name + "_sword"))
 			tools.add(addItem(ItemMetalAxe(metal).apply {
 				setUnlocalizedName("axe" + metal.name)
-				setCreativeTab(CreativeTabs.tabTools)
+				setCreativeTab(CreativeTabs.TOOLS)
 			}, metal.name + "_axe"))
 			tools.add(addItem(ItemMetalHoe(metal).apply {
 				setUnlocalizedName("hoe" + metal.name)
-				setCreativeTab(CreativeTabs.tabTools)
+				setCreativeTab(CreativeTabs.TOOLS)
 			}, metal.name + "_hoe"))
 			armors.add(addItem(ItemMetalArmor(metal, EntityEquipmentSlot.HEAD).apply {
 				setUnlocalizedName("helmet" + metal.name)
-				setCreativeTab(CreativeTabs.tabCombat)
+				setCreativeTab(CreativeTabs.COMBAT)
 			}, metal.name + "_helmet"))
 			armors.add(addItem(ItemMetalArmor(metal, EntityEquipmentSlot.CHEST).apply {
 				setUnlocalizedName("chestplate" + metal.name)
-				setCreativeTab(CreativeTabs.tabCombat)
+				setCreativeTab(CreativeTabs.COMBAT)
 			}, metal.name + "_chestplate"))
 			armors.add(addItem(ItemMetalArmor(metal, EntityEquipmentSlot.LEGS).apply {
 				setUnlocalizedName("leggings" + metal.name)
-				setCreativeTab(CreativeTabs.tabCombat)
+				setCreativeTab(CreativeTabs.COMBAT)
 			}, metal.name + "_leggings"))
 			armors.add(addItem(ItemMetalArmor(metal, EntityEquipmentSlot.FEET).apply {
 				setUnlocalizedName("boots" + metal.name)
-				setCreativeTab(CreativeTabs.tabCombat)
+				setCreativeTab(CreativeTabs.COMBAT)
 			}, metal.name + "_boots"))
 		}
 	}
@@ -190,30 +189,29 @@ class ProxyModMetals : ProxyModBase(ModMetals.MODID) {
 		addMetalSmeltingRecipes()
 		addMetalRecipes()
 		addToolsAndArmorRecipes()
-		addRecipe(metalFurnace, "xxx", "x x", "xxx", 'x', Blocks.brick_block)
+		addRecipe(metalFurnace, "xxx", "x x", "xxx", 'x', Blocks.BRICK_BLOCK)
 	}
 
 	private fun addToolsAndArmorRecipes() {
 		for (metal in arrayOf(Metal.BRONZE, Metal.STEEL, Metal.COBALT, Metal.FERCO_STEEL, Metal.TUNGSTEN,
 				Metal.MUSHET_STEEL)) {
-			val pickaxe = Item.itemRegistry.getObject(ResourceLocation("metals:" + metal.name + "_pickaxe"))
+			val pickaxe = Item.REGISTRY.getObject(ResourceLocation("metals:" + metal.name + "_pickaxe"))
 			addRecipe(pickaxe, "xxx", " y ", " y ", 'x', metal.ingotName, 'y', "stickWood")
-			val shovel = Item.itemRegistry.getObject(ResourceLocation("metals:" + metal.name + "_shovel"))
+			val shovel = Item.REGISTRY.getObject(ResourceLocation("metals:" + metal.name + "_shovel"))
 			addRecipe(shovel, "x", "y", "y", 'x', metal.ingotName, 'y', "stickWood")
-			val axe = Item.itemRegistry.getObject(ResourceLocation("metals:" + metal.name + "_axe"))
+			val axe = Item.REGISTRY.getObject(ResourceLocation("metals:" + metal.name + "_axe"))
 			addRecipe(axe, "xx", "xy", " y", 'x', metal.ingotName, 'y', "stickWood")
-			val hoe = Item.itemRegistry.getObject(ResourceLocation("metals:" + metal.name + "_hoe"))
+			val hoe = Item.REGISTRY.getObject(ResourceLocation("metals:" + metal.name + "_hoe"))
 			addRecipe(hoe, "xx", " y", " y", 'x', metal.ingotName, 'y', "stickWood")
-			val sword = Item.itemRegistry.getObject(ResourceLocation("metals:" + metal.name + "_sword"))
+			val sword = Item.REGISTRY.getObject(ResourceLocation("metals:" + metal.name + "_sword"))
 			addRecipe(sword, "x", "x", "y", 'x', metal.ingotName, 'y', "stickWood")
-			val helmet = Item.itemRegistry.getObject(ResourceLocation("metals:" + metal.name + "_helmet"))
+			val helmet = Item.REGISTRY.getObject(ResourceLocation("metals:" + metal.name + "_helmet"))
 			addRecipe(helmet, "xxx", "x x", 'x', metal.ingotName)
-			val chestplate = Item.itemRegistry.getObject(
-					ResourceLocation("metals:" + metal.name + "_chestplate"))
+			val chestplate = Item.REGISTRY.getObject(ResourceLocation("metals:" + metal.name + "_chestplate"))
 			addRecipe(chestplate, "x x", "xxx", "xxx", 'x', metal.ingotName)
-			val leggings = Item.itemRegistry.getObject(ResourceLocation("metals:" + metal.name + "_leggings"))
+			val leggings = Item.REGISTRY.getObject(ResourceLocation("metals:" + metal.name + "_leggings"))
 			addRecipe(leggings, "xxx", "x x", "x x", 'x', metal.ingotName)
-			val boots = Item.itemRegistry.getObject(ResourceLocation("metals:" + metal.name + "_boots"))
+			val boots = Item.REGISTRY.getObject(ResourceLocation("metals:" + metal.name + "_boots"))
 			addRecipe(boots, "x x", "x x", 'x', metal.ingotName)
 		}
 	}
@@ -221,18 +219,18 @@ class ProxyModMetals : ProxyModBase(ModMetals.MODID) {
 	private fun removeIngotSmeltingRecipes() {
 		val recipes = FurnaceRecipes.instance().getSmeltingList()!!
 		for (entry in HashMap(recipes)) {
-			if (entry.value.item == Items.iron_ingot) {
+			if (entry.value.item == Items.IRON_INGOT) {
 				recipes.remove(entry.key)
-			} else if (entry.value.item == Items.gold_ingot) {
+			} else if (entry.value.item == Items.GOLD_INGOT) {
 				recipes.remove(entry.key)
 			}
 		}
 	}
 
 	private fun removeDiamondItemsRecipes() {
-		val diamondItems = arrayOf(Items.diamond_axe, Items.diamond_boots, Items.diamond_chestplate,
-				Items.diamond_helmet, Items.diamond_hoe, Items.diamond_leggings, Items.diamond_pickaxe,
-				Items.diamond_shovel, Items.diamond_sword)
+		val diamondItems = arrayOf(Items.DIAMOND_AXE, Items.DIAMOND_BOOTS, Items.DIAMOND_CHESTPLATE,
+				Items.DIAMOND_HELMET, Items.DIAMOND_HOE, Items.DIAMOND_LEGGINGS, Items.DIAMOND_PICKAXE,
+				Items.DIAMOND_SHOVEL, Items.DIAMOND_SWORD)
 		val recipeList = CraftingManager.getInstance().recipeList!!
 		for (recipe in ArrayList(recipeList)) {
 			if (recipe.recipeOutput != null && recipe.recipeOutput.item in diamondItems)
@@ -250,11 +248,11 @@ class ProxyModMetals : ProxyModBase(ModMetals.MODID) {
 		MetalFurnaceRecipes.addAlloyRecipe(Metal.COPPER, 3, Metal.TIN, 1, Metal.BRONZE, 2)
 		MetalFurnaceRecipes.addMetalRecipe(Metal.IRON)
 		MetalFurnaceRecipes.addAlloyRecipe(Metal.STEEL, 1, Metal.ItemType.INGOT, Metal.IRON, 1,
-				Metal.ItemType.INGOT, ItemStack(Items.coal))
+				Metal.ItemType.INGOT, ItemStack(Items.COAL))
 		MetalFurnaceRecipes.addAlloyRecipe(Metal.STEEL, 1, Metal.ItemType.INGOT, Metal.IRON, 9,
-				Metal.ItemType.INGOT, ItemStack(Blocks.coal_block))
+				Metal.ItemType.INGOT, ItemStack(Blocks.COAL_BLOCK))
 		MetalFurnaceRecipes.addAlloyRecipe(Metal.STEEL, 1, Metal.ItemType.BLOCK, Metal.IRON, 9,
-				Metal.ItemType.BLOCK, ItemStack(Blocks.coal_block))
+				Metal.ItemType.BLOCK, ItemStack(Blocks.COAL_BLOCK))
 		MetalFurnaceRecipes.addMetalRecipe(Metal.COBALT)
 		MetalFurnaceRecipes.addMetalRecipe(Metal.TUNGSTEN)
 		MetalFurnaceRecipes.addAlloyRecipe(Metal.STEEL, 3, Metal.COBALT, 1, Metal.FERCO_STEEL, 2)
@@ -269,7 +267,7 @@ class ProxyModMetals : ProxyModBase(ModMetals.MODID) {
 			addRecipe(ingot.createStack(metal), "xxx", "xxx", "xxx", 'x', metal.nuggetName)
 			addRecipe(true, ingot.createStack(metal, 9), metal.blockName)
 		}
-		addRecipe(Items.iron_ingot, "xxx", "xxx", "xxx", 'x', Metal.IRON.nuggetName)
+		addRecipe(Items.IRON_INGOT, "xxx", "xxx", "xxx", 'x', Metal.IRON.nuggetName)
 		for (metal in ItemMetalBase.NUGGETS) {
 			addRecipe(true, nugget.createStack(metal, 9), metal.ingotName)
 		}

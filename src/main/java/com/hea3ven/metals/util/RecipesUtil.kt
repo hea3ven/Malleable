@@ -26,19 +26,19 @@ fun getMetalRecipes(): List<IRecipe> {
 			continue
 
 		val found = recipe.input.any {
-			(it is ItemStack && it.item == Items.iron_ingot)
-					|| (it is List<*> && it.any { (it as ItemStack).item == Items.iron_ingot })
+			(it is ItemStack && it.item == Items.IRON_INGOT)
+					|| (it is List<*> && it.any { (it as ItemStack).item == Items.IRON_INGOT })
 		}
 		if (!found)
 			continue
-		if (recipe.recipeOutput.item == Items.iron_ingot
-				|| recipe.recipeOutput.item == Item.getItemFromBlock(Blocks.iron_block))
+		if (recipe.recipeOutput.item == Items.IRON_INGOT
+				|| recipe.recipeOutput.item == Item.getItemFromBlock(Blocks.IRON_BLOCK))
 			continue
 
-		recipes.add(convertRecipe(recipe, Items.iron_ingot, Blocks.iron_block, Metal.COPPER))
-		recipes.add(convertRecipe(recipe, Items.iron_ingot, Blocks.iron_block, Metal.TIN))
-		recipes.add(convertRecipe(recipe, Items.iron_ingot, Blocks.iron_block, Metal.COBALT))
-		recipes.add(convertRecipe(recipe, Items.iron_ingot, Blocks.iron_block, Metal.TUNGSTEN))
+		recipes.add(convertRecipe(recipe, Items.IRON_INGOT, Blocks.IRON_BLOCK, Metal.COPPER))
+		recipes.add(convertRecipe(recipe, Items.IRON_INGOT, Blocks.IRON_BLOCK, Metal.TIN))
+		recipes.add(convertRecipe(recipe, Items.IRON_INGOT, Blocks.IRON_BLOCK, Metal.COBALT))
+		recipes.add(convertRecipe(recipe, Items.IRON_INGOT, Blocks.IRON_BLOCK, Metal.TUNGSTEN))
 	}
 	return recipes
 }
@@ -53,7 +53,7 @@ private fun convertRecipe(recipe: ShapedOreRecipe, oreTranslations: Map<String, 
 		itemTranslations: Map<Item, String>): IRecipe {
 	val width: Int = ReflectionHelper.getPrivateValue(ShapedOreRecipe::class.java, recipe, "width")
 	val height: Int = ReflectionHelper.getPrivateValue(ShapedOreRecipe::class.java, recipe, "height")
-	val recipeShape = Array<String>(height, { "" })
+	val recipeShape = Array(height, { "" })
 	val ingredientsMapping: MutableMap<Any, Char> = mutableMapOf()
 	var c = 'a'
 	var row = 0
@@ -64,11 +64,11 @@ private fun convertRecipe(recipe: ShapedOreRecipe, oreTranslations: Map<String, 
 			resultInput = getOreDictName(input)
 
 		if (resultInput is ItemStack && itemTranslations.containsKey(resultInput.item))
-			resultInput = itemTranslations.get(resultInput.item)
+			resultInput = itemTranslations[resultInput.item]
 		else if (resultInput is String && oreTranslations.containsKey(resultInput))
-			resultInput = oreTranslations.get(resultInput)
+			resultInput = oreTranslations[resultInput]
 
-		var key = ingredientsMapping.get(resultInput)
+		var key = ingredientsMapping[resultInput]
 		if (key == null) {
 			if (resultInput != null) {
 				key = c

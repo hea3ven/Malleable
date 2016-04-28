@@ -94,13 +94,13 @@ class TileMetalFurnace : TileMachine(), ITickable, IItemHandler, IUpdateHandler 
 	private fun burnFuel() {
 		val stack = slots[2]
 		if (stack != null) {
-			if ( stack.item == Items.coal && stack.metadata == 0) {
+			if ( stack.item == Items.COAL && stack.metadata == 0) {
 				stack.stackSize--
 				if (stack.stackSize <= 0)
 					slots[2] = null
 				fuel = 800
 				fuelCapacity = 800
-			} else if ((stack.item as? ItemBlock)?.block == Blocks.coal_block) {
+			} else if ((stack.item as? ItemBlock)?.block == Blocks.COAL_BLOCK) {
 				stack.stackSize--
 				if (stack.stackSize <= 0)
 					slots[2] = null
@@ -243,8 +243,8 @@ class TileMetalFurnace : TileMachine(), ITickable, IItemHandler, IUpdateHandler 
 			else
 				return false
 		} else if (slot < 3)
-			return (stack.item == Items.coal && stack.metadata == 0) ||
-					((stack.item as? ItemBlock)?.block == Blocks.coal_block)
+			return (stack.item == Items.COAL && stack.metadata == 0) ||
+					((stack.item as? ItemBlock)?.block == Blocks.COAL_BLOCK)
 		else
 			return true
 	}

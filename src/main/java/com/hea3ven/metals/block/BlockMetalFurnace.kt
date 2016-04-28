@@ -15,7 +15,7 @@ import net.minecraft.util.EnumFacing
 import net.minecraft.util.math.BlockPos
 import net.minecraft.world.World
 
-class BlockMetalFurnace : BlockMachine(Material.rock, ModMetals.MODID, ModMetals.guiIdMetalFurnace) {
+class BlockMetalFurnace : BlockMachine(Material.ROCK, ModMetals.MODID, ModMetals.guiIdMetalFurnace) {
 
 	init {
 		soundType = SoundType.STONE

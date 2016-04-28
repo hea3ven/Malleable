@@ -1,8 +1,6 @@
 package com.hea3ven.metals.metal
 
 import com.hea3ven.metals.ModMetals
-import com.hea3ven.metals.ProxyModMetals
-import com.hea3ven.metals.item.ItemBlockMetal
 import net.minecraft.init.Blocks
 import net.minecraft.init.Items
 import net.minecraft.init.SoundEvents
@@ -41,29 +39,29 @@ class Metal(
 				"blockGold", "ingotGold", "nuggetGold", 0, 32, 2, 9, null);
 		val BRONZE = Metal("bronze", EnumHelper.addToolMaterial("bronze", 1, 1024, 6.0F, 2.0F, 22),
 				EnumHelper.addArmorMaterial("bronze", "armor", 15, intArrayOf(1, 5, 3, 2), 10,
-						SoundEvents.item_armor_equip_iron), (225 shl 16) + (170 shl 8) + 80, null,
+						SoundEvents.ITEM_ARMOR_EQUIP_IRON), (225 shl 16) + (170 shl 8) + 80, null,
 				"blockBronze", "ingotBronze", "nuggetBronze", 0, 0, 0, 0, null);
 		val STEEL = Metal("steel", EnumHelper.addToolMaterial("steel", 3, 3072, 7.0F, 2.5F, 14),
 				EnumHelper.addArmorMaterial("steel", "armor", 28, intArrayOf(2, 6, 5, 2), 10,
-						SoundEvents.item_armor_equip_iron), (100 shl 16) + (100 shl 8) + 110, null,
+						SoundEvents.ITEM_ARMOR_EQUIP_IRON), (100 shl 16) + (100 shl 8) + 110, null,
 				"blockSteel", "ingotSteel", "nuggetSteel", 0, 0, 0, 0, null);
 		val COBALT = Metal("cobalt", EnumHelper.addToolMaterial("cobalt", 3, 2048, 9.0F, 4.0F, 16),
 				EnumHelper.addArmorMaterial("cobalt", "armor", 20, intArrayOf(2, 7, 5, 3), 10,
-						SoundEvents.item_armor_equip_iron), (65 shl 16) + (90 shl 8) + 205, "oreCobalt",
+						SoundEvents.ITEM_ARMOR_EQUIP_IRON), (65 shl 16) + (90 shl 8) + 205, "oreCobalt",
 				"blockCobalt", "ingotCobalt", "nuggetCobalt", 16, 70, 10, 15, -1);
 		val FERCO_STEEL = Metal("fercosteel",
 				EnumHelper.addToolMaterial("fercoSteel", 3, 4096, 10.0F, 4.5F, 12),
 				EnumHelper.addArmorMaterial("fercoSteel", "armor", 38, intArrayOf(2, 7, 5, 3), 10,
-						SoundEvents.item_armor_equip_iron), (50 shl 16) + (60 shl 8) + 105, null,
+						SoundEvents.ITEM_ARMOR_EQUIP_IRON), (50 shl 16) + (60 shl 8) + 105, null,
 				"blockFercoSteel", "ingotFercoSteel", "nuggetFercoSteel", 0, 0, 0, 0, null);
 		val TUNGSTEN = Metal("tungsten", EnumHelper.addToolMaterial("tungsten", 3, 5120, 7.0F, 2.5F, 20),
 				EnumHelper.addArmorMaterial("tungsten", "armor", 40, intArrayOf(3, 8, 6, 3), 10,
-						SoundEvents.item_armor_equip_iron), (60 shl 16) + (50 shl 8) + 50, "oreTungsten",
+						SoundEvents.ITEM_ARMOR_EQUIP_IRON), (60 shl 16) + (50 shl 8) + 50, "oreTungsten",
 				"blockTungsten", "ingotTungsten", "nuggetTungsten", 8, 64, 30, 5, 1);
 		val MUSHET_STEEL = Metal("mushetsteel",
 				EnumHelper.addToolMaterial("mushetSteel", 3, 8192, 8.0F, 3.0F, 12),
 				EnumHelper.addArmorMaterial("mushetSteel", "armor", 56, intArrayOf(3, 8, 6, 3), 10,
-						SoundEvents.item_armor_equip_iron), (25 shl 16) + (35 shl 8) + 25, null,
+						SoundEvents.ITEM_ARMOR_EQUIP_IRON), (25 shl 16) + (35 shl 8) + 25, null,
 				"blockMushetSteel", "ingotMushetSteel", "nuggetMushetSteel", 0, 0, 0, 0, null);
 
 		val values = arrayOf(IRON, COPPER, TIN, GOLD, BRONZE, STEEL, COBALT, FERCO_STEEL, TUNGSTEN,
@@ -72,33 +70,33 @@ class Metal(
 		fun initVanillaMetals() {
 			// ToolMaterial.IRON.maxUses = 2048
 			ReflectionHelper.setPrivateValue(Item.ToolMaterial::class.java, Item.ToolMaterial.IRON, 2048, 6);
-			initVanillaTools(2048, Items.iron_pickaxe, Items.iron_shovel, Items.iron_axe, Items.iron_hoe,
-					Items.iron_sword)
+			initVanillaTools(2048, Items.IRON_PICKAXE, Items.IRON_SHOVEL, Items.IRON_AXE, Items.IRON_HOE,
+					Items.IRON_SWORD)
 			// ArmorMaterial.IRON.maxDamageFactorIn = 20
 			ReflectionHelper.setPrivateValue(ItemArmor.ArmorMaterial::class.java,
 					ItemArmor.ArmorMaterial.IRON, 20, 6);
-			initVanillaArmor(ItemArmor.ArmorMaterial.IRON, Items.iron_helmet, Items.iron_chestplate,
-					Items.iron_leggings, Items.iron_boots)
+			initVanillaArmor(ItemArmor.ArmorMaterial.IRON, Items.IRON_HELMET, Items.IRON_CHESTPLATE,
+					Items.IRON_LEGGINGS, Items.IRON_BOOTS)
 
 			// ToolMaterial.GOLD.maxUses = 512
 			ReflectionHelper.setPrivateValue(Item.ToolMaterial::class.java, Item.ToolMaterial.IRON, 512, 6);
-			initVanillaTools(512, Items.iron_pickaxe, Items.iron_shovel, Items.iron_axe, Items.iron_hoe,
-					Items.iron_sword)
+			initVanillaTools(512, Items.IRON_PICKAXE, Items.IRON_SHOVEL, Items.IRON_AXE, Items.IRON_HOE,
+					Items.IRON_SWORD)
 			// ArmorMaterial.IRON.maxDamageFactorIn = 20
 			ReflectionHelper.setPrivateValue(ItemArmor.ArmorMaterial::class.java,
 					ItemArmor.ArmorMaterial.IRON, 10, 6);
-			initVanillaArmor(ItemArmor.ArmorMaterial.GOLD, Items.golden_helmet, Items.golden_chestplate,
-					Items.golden_leggings, Items.golden_boots)
+			initVanillaArmor(ItemArmor.ArmorMaterial.GOLD, Items.GOLDEN_HELMET, Items.GOLDEN_CHESTPLATE,
+					Items.GOLDEN_LEGGINGS, Items.GOLDEN_BOOTS)
 
 			// ToolMaterial.DIAMOND.maxUses = 1
 			ReflectionHelper.setPrivateValue(Item.ToolMaterial::class.java, Item.ToolMaterial.IRON, 1, 6);
-			initVanillaTools(1, Items.iron_pickaxe, Items.iron_shovel, Items.iron_axe, Items.iron_hoe,
-					Items.iron_sword)
+			initVanillaTools(1, Items.IRON_PICKAXE, Items.IRON_SHOVEL, Items.IRON_AXE, Items.IRON_HOE,
+					Items.IRON_SWORD)
 			// ArmorMaterial.DIAMOND.maxDamageFactorIn = 1
 			ReflectionHelper.setPrivateValue(ItemArmor.ArmorMaterial::class.java,
 					ItemArmor.ArmorMaterial.DIAMOND, 1, 6);
-			initVanillaArmor(ItemArmor.ArmorMaterial.DIAMOND, Items.diamond_helmet, Items.diamond_chestplate,
-					Items.diamond_leggings, Items.diamond_boots)
+			initVanillaArmor(ItemArmor.ArmorMaterial.DIAMOND, Items.DIAMOND_HELMET, Items.DIAMOND_CHESTPLATE,
+					Items.DIAMOND_LEGGINGS, Items.DIAMOND_BOOTS)
 		}
 
 		private fun initVanillaTools(damage: Int, vararg items: Item) {
@@ -127,8 +125,8 @@ class Metal(
 	}
 
 	fun getOreStack() = when (this) {
-		IRON -> ItemStack(Blocks.iron_ore)
-		GOLD -> ItemStack(Blocks.gold_ore)
+		IRON -> ItemStack(Blocks.IRON_ORE)
+		GOLD -> ItemStack(Blocks.GOLD_ORE)
 		else -> {
 			if (oreName != null)
 				ModMetals.proxy.ore.createStack(this)
@@ -138,8 +136,8 @@ class Metal(
 	}
 
 	fun getBlockStack() = when (this) {
-		IRON -> ItemStack(Blocks.iron_block)
-		GOLD -> ItemStack(Blocks.gold_block)
+		IRON -> ItemStack(Blocks.IRON_BLOCK)
+		GOLD -> ItemStack(Blocks.GOLD_BLOCK)
 		else -> {
 			if (ModMetals.proxy.block.metals.contains(this))
 				ModMetals.proxy.block.createStack(this)
@@ -149,8 +147,8 @@ class Metal(
 	}
 
 	fun getIngotStack() = when (this) {
-		IRON -> ItemStack(Items.iron_ingot)
-		GOLD -> ItemStack(Items.gold_ingot)
+		IRON -> ItemStack(Items.IRON_INGOT)
+		GOLD -> ItemStack(Items.GOLD_INGOT)
 		else -> {
 			if (ModMetals.proxy.ingot.metals.contains(this))
 				ModMetals.proxy.ingot.createStack(this)
@@ -160,7 +158,7 @@ class Metal(
 	}
 
 	fun getNuggetStack() = when (this) {
-		GOLD -> ItemStack(Items.gold_nugget)
+		GOLD -> ItemStack(Items.GOLD_NUGGET)
 		else -> {
 			if (ModMetals.proxy.nugget.metals.contains(this))
 				ModMetals.proxy.nugget.createStack(this)

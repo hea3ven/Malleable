@@ -1,6 +1,5 @@
 package com.hea3ven.metals.world
 
-import com.hea3ven.metals.ModMetals
 import com.hea3ven.metals.block.BlockMetalOre
 import com.hea3ven.metals.metal.Metal
 import net.minecraft.block.state.pattern.BlockMatcher
@@ -22,9 +21,7 @@ class WorldGeneratorOre(val ore: BlockMetalOre) : IWorldGenerator {
 		if (minables == null)
 			initMinables()
 
-		val dimMinables = minables!![world.provider!!.dimension]
-		if (dimMinables == null)
-			return
+		val dimMinables = minables!![world.provider!!.dimension] ?: return
 		for (minDef in dimMinables) {
 			for (i in 0..minDef.metal.genCount) {
 				val veinX = chunkX * 16 + rand.nextInt(16)
@@ -46,9 +43,9 @@ class WorldGeneratorOre(val ore: BlockMetalOre) : IWorldGenerator {
 			= MinableDefinition(metal,
 			WorldGenMinable(ore.defaultState.withProperty(ore.getMetalProperty(), metal), metal.genSize,
 					BlockMatcher.forBlock(when (metal.genDimension) {
-						0 -> Blocks.stone
-						-1 -> Blocks.netherrack
-						1 -> Blocks.end_stone
+						0 -> Blocks.STONE
+						-1 -> Blocks.NETHERRACK
+						1 -> Blocks.END_STONE
 						else -> null
 					})))
 
