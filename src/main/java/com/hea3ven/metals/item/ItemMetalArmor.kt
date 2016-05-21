@@ -6,7 +6,6 @@ import net.minecraft.entity.Entity
 import net.minecraft.inventory.EntityEquipmentSlot
 import net.minecraft.item.ItemArmor
 import net.minecraft.item.ItemStack
-import net.minecraftforge.fml.common.ModMetadata
 
 class ItemMetalArmor(override val metal: Metal, slot: EntityEquipmentSlot)
 : ItemArmor(metal.armorMaterial, -1, slot), ItemMetalSingle {

@@ -41,7 +41,7 @@ abstract class BlockMetalBase(material: Material, override val metals: Array<Met
 	companion object {
 
 		@SideOnly(Side.CLIENT)
-		val colorHandler = object : IColorHandler {
+		fun getColorHandler() = object : IColorHandler {
 			override fun getColorFromItemstack(stack: ItemStack, tintIndex: Int): Int {
 				return ((stack.item as ItemBlockMetal).block as BlockMetal).getMetalFromStack(stack).color
 			}

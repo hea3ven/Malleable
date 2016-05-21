@@ -15,7 +15,6 @@ import com.hea3ven.tools.commonutils.inventory.ISimpleGuiHandler
 import com.hea3ven.tools.commonutils.mod.ProxyModBase
 import com.hea3ven.tools.commonutils.util.WorldHelper
 import net.minecraft.client.gui.Gui
-import net.minecraft.client.renderer.color.IItemColor
 import net.minecraft.creativetab.CreativeTabs
 import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.init.Blocks
@@ -156,16 +155,10 @@ class ProxyModMetals : ProxyModBase(ModMetals.MODID) {
 
 	@SideOnly(Side.CLIENT)
 	override fun registerColors() {
-		addColors(BlockMetalBase.colorHandler, ore, block)
-		addItemColors(ItemMetalBase.colorHandler, nugget, ingot)
-		addItemColors(object : IItemColor {
-			override fun getColorFromItemstack(stack: ItemStack, tintIndex: Int)
-					= if (tintIndex == 1) (stack.item as ItemMetal).getMetal(stack).color else -1
-		}, tools)
-		addItemColors(object : IItemColor {
-			override fun getColorFromItemstack(stack: ItemStack, tintIndex: Int)
-					= (stack.item as ItemMetal).getMetal(stack).color
-		}, armors)
+		addColors(BlockMetalBase.getColorHandler(), ore, block)
+		addItemColors(ItemMetalBase.getColorHandler(), nugget, ingot)
+		addItemColors(ItemMetalBase.getToolsColorHandler(), tools)
+		addItemColors(ItemMetalBase.getColorHandler(), armors)
 	}
 
 	override fun registerGuis() {
@@ -275,18 +268,4 @@ class ProxyModMetals : ProxyModBase(ModMetals.MODID) {
 		for (recipe in getMetalRecipes())
 			addRecipe(recipe)
 	}
-
-	private fun addMetalRecipe(itemStack: ItemStack, vararg recipe: Any?) {
-		for (recipeMetal in arrayOf(Metal.BRONZE.ingotName, Metal.COBALT.nuggetName)) {
-			val newRecipe = arrayOfNulls<Any>(recipe.size)
-			for (i in 0..recipe.size - 1) {
-				if (recipe[i] == null)
-					newRecipe[i] = recipeMetal
-				else
-					newRecipe[i] = recipe[i]
-			}
-			addRecipe(itemStack, *newRecipe)
-		}
-	}
-
 }

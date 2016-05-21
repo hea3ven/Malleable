@@ -39,9 +39,15 @@ class ItemMetalBase(override val metals: Array<Metal>) : Item(), ItemMetal {
 				Metal.FERCO_STEEL, Metal.TUNGSTEN, Metal.MUSHET_STEEL);
 
 		@SideOnly(Side.CLIENT)
-		val colorHandler = object : IItemColor {
+		fun getColorHandler() = object : IItemColor {
 			override fun getColorFromItemstack(stack: ItemStack, tintIndex: Int)
-					= (stack.item as ItemMetalBase).getMetal(stack).color
+					= (stack.item as ItemMetal).getMetal(stack).color
+		}
+
+		@SideOnly(Side.CLIENT)
+		fun getToolsColorHandler() = object : IItemColor {
+			override fun getColorFromItemstack(stack: ItemStack, tintIndex: Int)
+					= if (tintIndex == 1) (stack.item as ItemMetal).getMetal(stack).color else -1
 		}
 	}
 }

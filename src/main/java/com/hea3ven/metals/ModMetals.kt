@@ -26,7 +26,7 @@ class ModMetals {
 	companion object {
 		const val MODID = "metals"
 		const val VERSION = "1.9-1.0.0"
-		const val DEPENDENCIES = "required-after:Forge@[12.16.0.1811,)"
+		const val DEPENDENCIES = "required-after:Forge@[12.16.1.1894,)"
 
 		const val guiIdMetalFurnace = 1;
 
