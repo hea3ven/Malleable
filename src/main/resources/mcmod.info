@@ -1,11 +1,11 @@
 [
 {
-  "modid": "metals",
-  "name": "Metals",
+  "modid": "malleable",
+  "name": "Malleable",
   "description": "Metals.",
   "version": "${version}",
   "mcversion": "${version_mc}",
-  "url": "https://github.com/hea3ven/Metals",
+  "url": "https://github.com/hea3ven/Malleable",
   "updateUrl": "",
   "authorList": ["Hea3veN"],
   "credits": "",

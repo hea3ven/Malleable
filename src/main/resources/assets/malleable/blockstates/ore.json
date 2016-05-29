@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "metal=copper": { "model": "malleable:ore" },
+        "metal=tin": { "model": "malleable:ore" },
+        "metal=cobalt": { "model": "malleable:ore_nether" },
+        "metal=tungsten": { "model": "malleable:ore_end" }
+    }
+}

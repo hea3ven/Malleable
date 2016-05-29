@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "metal=copper": { "model": "malleable:block_metal" },
+        "metal=tin": { "model": "malleable:block_metal" },
+        "metal=bronze": { "model": "malleable:block_metal" },
+        "metal=steel": { "model": "malleable:block_metal" },
+        "metal=cobalt": { "model": "malleable:block_metal" },
+        "metal=fercosteel": { "model": "malleable:block_metal" },
+        "metal=tungsten": { "model": "malleable:block_metal" },
+        "metal=mushetsteel": { "model": "malleable:block_metal" }
+    }
+}

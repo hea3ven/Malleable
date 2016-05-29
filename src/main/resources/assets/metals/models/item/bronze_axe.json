@@ -1,7 +1,0 @@
-{
-    "parent": "item/handheld",
-    "textures": {
-        "layer0": "metals:items/axe_handle",
-        "layer1": "metals:items/axe_head"
-    }
-}
