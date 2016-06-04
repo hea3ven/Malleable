@@ -92,3 +92,5 @@ item.malleable.mushetsteelHelmet.name=Mushet Steel Helmet
 item.malleable.mushetsteelChestplate.name=Mushet Steel Chestplate
 item.malleable.mushetsteelLeggings.name=Mushet Steel Leggings
 item.malleable.mushetsteelBoots.name=Mushet Steel Boots
+
+gui.malleable.jei.metalFurnace=Metal Furnace

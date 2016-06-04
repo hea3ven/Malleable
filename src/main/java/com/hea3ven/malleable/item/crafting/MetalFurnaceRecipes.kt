@@ -1,9 +1,6 @@
 package com.hea3ven.malleable.item.crafting
 
-import com.hea3ven.malleable.ModMetals
 import com.hea3ven.malleable.metal.Metal
-import net.minecraft.init.Blocks
-import net.minecraft.init.Items
 import net.minecraft.item.ItemStack
 import net.minecraftforge.oredict.OreDictionary
 
@@ -73,9 +70,8 @@ object MetalFurnaceRecipes {
 		}
 
 		for (it in recipes) {
-			var inputs = it.key
-			var input2 = inputs.second
-			var input1 = inputs.first
+			val input2 = it.key.second
+			val input1 = it.key.first
 			if ((!ItemStack.areItemsEqual(input1, stack1) ||
 					!ItemStack.areItemsEqual(input2, stack2)) &&
 					(!ItemStack.areItemsEqual(input1, stack2) ||
@@ -99,9 +95,11 @@ object MetalFurnaceRecipes {
 	}
 
 	fun smelt(itemStack: ItemStack?, itemStack1: ItemStack?): ItemStack? {
-		var recipe = getRecipe(itemStack, itemStack1, true)
+		val recipe = getRecipe(itemStack, itemStack1, true)
 		return recipe!!.smelt(itemStack, itemStack1)
 	}
+
+	fun getAll() = recipes.values
 }
 
 class MetalFurnaceRecipe(val input1: ItemStack, val input2: ItemStack?, val output: ItemStack) {
