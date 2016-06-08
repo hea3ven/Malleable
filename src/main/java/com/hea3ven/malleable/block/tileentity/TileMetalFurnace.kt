@@ -110,9 +110,8 @@ class TileMetalFurnace : TileMachine(), ITickable, IItemHandler, IUpdateHandler 
 		}
 	}
 
-	override fun writeToNBT(compound: NBTTagCompound) {
-		super.writeToNBT(compound)
-		var nbt = compound
+	override fun writeToNBT(compound: NBTTagCompound): NBTTagCompound? {
+		var nbt = super.writeToNBT(compound)
 
 		nbt.setInteger("Progress", progress)
 		nbt.setInteger("Fuel", fuel)
@@ -129,6 +128,7 @@ class TileMetalFurnace : TileMachine(), ITickable, IItemHandler, IUpdateHandler 
 				}
 			}
 		})
+		return nbt
 	}
 
 	override fun readFromNBT(compound: NBTTagCompound) {
