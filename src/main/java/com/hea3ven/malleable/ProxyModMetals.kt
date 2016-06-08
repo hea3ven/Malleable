@@ -226,7 +226,8 @@ class ProxyModMetals : ProxyModBase(ModMetals.MODID) {
 				Items.DIAMOND_SHOVEL, Items.DIAMOND_SWORD)
 		val recipeList = CraftingManager.getInstance().recipeList!!
 		for (recipe in ArrayList(recipeList)) {
-			if (recipe.recipeOutput != null && recipe.recipeOutput.item in diamondItems)
+			val output = recipe.recipeOutput
+			if (output != null && output.item in diamondItems)
 				recipeList.remove(recipe)
 		}
 		for (item in diamondItems) {

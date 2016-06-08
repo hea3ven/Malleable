@@ -112,12 +112,13 @@ class TileMetalFurnace : TileMachine(), ITickable, IItemHandler, IUpdateHandler 
 
 	override fun writeToNBT(compound: NBTTagCompound) {
 		super.writeToNBT(compound)
+		var nbt = compound
 
-		compound.setInteger("Progress", progress)
-		compound.setInteger("Fuel", fuel)
-		compound.setInteger("FuelCapacity", fuelCapacity)
+		nbt.setInteger("Progress", progress)
+		nbt.setInteger("Fuel", fuel)
+		nbt.setInteger("FuelCapacity", fuelCapacity)
 
-		compound.setTag("Slots", NBTTagList().apply {
+		nbt.setTag("Slots", NBTTagList().apply {
 			for (i in 0..slots.size - 1) {
 				val slot = slots[i]
 				if (slot != null) {

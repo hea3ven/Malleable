@@ -16,13 +16,14 @@ fun getMetalRecipes(): List<IRecipe> {
 	var recipes = mutableListOf<IRecipe>()
 	val recipeList = CraftingManager.getInstance().recipeList!!
 	for (recipe in ArrayList(recipeList)) {
-		if (recipe.recipeOutput == null)
+		val output = recipe.recipeOutput
+		if (output == null)
 			continue
 		if (recipe !is ShapedOreRecipe)
 			continue
 
-		if (recipe.recipeOutput.item is ItemTool || recipe.recipeOutput.item is ItemArmor
-				|| recipe.recipeOutput.item is ItemHoe || recipe.recipeOutput.item is ItemSword)
+		if (output.item is ItemTool || output.item is ItemArmor || output.item is ItemHoe
+				|| output.item is ItemSword)
 			continue
 
 		val found = recipe.input.any {
@@ -31,8 +32,7 @@ fun getMetalRecipes(): List<IRecipe> {
 		}
 		if (!found)
 			continue
-		if (recipe.recipeOutput.item == Items.IRON_INGOT
-				|| recipe.recipeOutput.item == Item.getItemFromBlock(Blocks.IRON_BLOCK))
+		if (output.item == Items.IRON_INGOT || output.item == Item.getItemFromBlock(Blocks.IRON_BLOCK))
 			continue
 
 		recipes.add(convertRecipe(recipe, Items.IRON_INGOT, Blocks.IRON_BLOCK, Metal.COPPER))
@@ -46,7 +46,7 @@ fun getMetalRecipes(): List<IRecipe> {
 private fun convertRecipe(recipe: ShapedOreRecipe, ingot: Item, block: Block, metal: Metal): IRecipe {
 	return convertRecipe(recipe,
 			mapOf(Pair("ingotIron", metal.ingotName), Pair("blockIron", metal.blockName)),
-			mapOf(Pair(ingot, metal.ingotName), Pair(Item.getItemFromBlock(block), metal.blockName)))
+			mapOf(Pair(ingot, metal.ingotName), Pair(Item.getItemFromBlock(block)!!, metal.blockName)))
 }
 
 private fun convertRecipe(recipe: ShapedOreRecipe, oreTranslations: Map<String, String>,

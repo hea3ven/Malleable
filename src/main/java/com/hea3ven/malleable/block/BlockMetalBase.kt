@@ -46,7 +46,7 @@ abstract class BlockMetalBase(material: Material, override val metals: Array<Met
 				return ((stack.item as ItemBlockMetal).block as BlockMetal).getMetalFromStack(stack).color
 			}
 
-			override fun colorMultiplier(state: IBlockState, world: IBlockAccess, pos: BlockPos,
+			override fun colorMultiplier(state: IBlockState, world: IBlockAccess?, pos: BlockPos?,
 					tintIndex: Int): Int {
 				return (state.block as BlockMetal).getMetalFromState(state).color
 			}
