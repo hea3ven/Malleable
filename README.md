@@ -6,7 +6,7 @@ A minecraft mod that rebalances the metals in the game.
 
 [Changelog](https://github.com/hea3ven/Malleable/blob/master/CHANGELOG)
 
-Curse: Malleable
+Curse: [Malleable](http://mods.curse.com/mc-mods/minecraft/245979-malleable)
 
 This mod requires forge to be installed.
 To install the mod copy the file to the "mods" folder

@@ -9,7 +9,7 @@
   "updateUrl": "",
   "authorList": ["Hea3veN"],
   "credits": "",
-  "logoFile": "",
+  "logoFile": "/assets/malleable/logo.png",
   "screenshots": [],
   "dependencies": ["required-after:Forge@[${version_forge},)"]
 }
