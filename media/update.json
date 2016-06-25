@@ -1,17 +1,23 @@
 {
+    "1.9": {
+        "1.9-1.0.0": "    * Initial release.",
+        "commit": "dd1f159"
+    },
+    "1.9.4": {
+        "1.9.4-1.0.0": "    * Initial release.",
+        "commit": "4f261df"
+    },
+    "1.10": {
+        "1.10-1.0.0": "    * Initial release.",
+        "commit": "b6a9ff27b4b03c555eb9b37b5d32e6b185d55714"
+    },
     "homepage": "https://github.com/hea3ven/Malleables",
     "promos": {
+        "1.9-latest": "1.9-1.0.0",
+        "1.9-recommended": "1.9-1.0.0",
         "1.9.4-latest": "1.9.4-1.0.0",
         "1.9.4-recommended": "1.9.4-1.0.0",
-        "1.9-latest": "1.9-1.0.0",
-        "1.9-recommended": "1.9-1.0.0"
-	},
-	"1.9": {
-		"commit": "dd1f159",
-		"1.9-1.0.0": "    * Initial release."
-	},
-	"1.9.4": {
-		"commit": "4f261df",
-		"1.9.4-1.0.0": "    * Initial release."
-	}
+        "1.10-latest": "1.10-1.0.0",
+        "1.10-recommended": "1.10-1.0.0"
+    }
 }
