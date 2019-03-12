@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "malleable:copper_ingot"
+    }
+  ],
+  "result": {
+    "item": "malleable:copper_nugget",
+    "count": 9
+  }
+}

@@ -1,0 +1,5 @@
+{
+    "variants": {
+        "": { "model": "malleable:block/tin_ore" }
+    }
+}

@@ -1,8 +1,7 @@
 {
     "parent": "item/handheld",
     "textures": {
-        "layer0": "malleable:items/sword_handle",
-        "layer1": "malleable:items/sword_head"
+        "layer0": "malleable:items/tungsten_sword"
     },
     "display": {
         "thirdperson": {

@@ -1,0 +1,9 @@
+{
+    "type": "minecraft:smelting",
+    "ingredient": {
+        "item": "malleable:copper_ore"
+    },
+    "result": "malleable:copper_nugget",
+    "experience": 0.7,
+    "cookingtime": 200
+}

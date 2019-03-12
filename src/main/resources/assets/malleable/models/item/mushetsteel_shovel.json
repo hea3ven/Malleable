@@ -1,8 +1,7 @@
 {
     "parent": "item/handheld",
     "textures": {
-        "layer0": "malleable:items/shovel_handle",
-        "layer1": "malleable:items/shovel_head"
+        "layer0": "malleable:items/mushetsteel_shovel"
     },
     "display": {
         "thirdperson": {

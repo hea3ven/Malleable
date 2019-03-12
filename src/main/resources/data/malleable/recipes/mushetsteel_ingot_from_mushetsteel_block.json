@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "mushetsteel_ingot",
+  "ingredients": [
+    {
+      "item": "malleable:mushetsteel_block"
+    }
+  ],
+  "result": {
+    "item": "malleable:mushetsteel_ingot",
+    "count": 9
+  }
+}

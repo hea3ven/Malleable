@@ -1,0 +1,5 @@
+{
+    "variants": {
+        "": { "model": "malleable:block/%s_block" }
+    }
+}

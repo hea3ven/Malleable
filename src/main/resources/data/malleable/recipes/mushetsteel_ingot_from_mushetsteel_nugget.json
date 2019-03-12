@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "mushetsteel_ingot",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "malleable:mushetsteel_nugget"
+    }
+  },
+  "result": {
+    "item": "malleable:mushetsteel_ingot"
+  }
+}

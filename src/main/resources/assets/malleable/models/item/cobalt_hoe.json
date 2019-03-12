@@ -1,8 +1,7 @@
 {
     "parent": "item/handheld",
     "textures": {
-        "layer0": "malleable:items/hoe_handle",
-        "layer1": "malleable:items/hoe_head"
+        "layer0": "malleable:items/cobalt_hoe"
     },
     "display": {
         "thirdperson": {

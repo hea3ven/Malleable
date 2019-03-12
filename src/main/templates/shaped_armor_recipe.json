@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "%s",
+    "%s",
+    "%s"
+  ],
+  "key": {
+    "X": {
+      "item": "malleable:%s_ingot"
+    }
+  },
+  "result": {
+    "item": "malleable:%s_%s"
+  }
+}

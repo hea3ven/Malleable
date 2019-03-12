@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "malleable:tin_nugget"
+    },
+    {
+      "item": "malleable:copper_nugget"
+    },
+    {
+      "item": "malleable:copper_nugget"
+    },
+    {
+      "item": "malleable:copper_nugget"
+    }
+  ],
+  "result": {
+    "item": "malleable:bronze_mix",
+    "count": 4
+  }
+}

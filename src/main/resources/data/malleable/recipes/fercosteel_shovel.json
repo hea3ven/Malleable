@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " X ",
+    " # ",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "malleable:fercosteel_ingot"
+    }
+  },
+  "result": {
+    "item": "malleable:fercosteel_shovel"
+  }
+}

@@ -1,0 +1,9 @@
+{
+    "type": "minecraft:smelting",
+    "ingredient": {
+        "item": "malleable:bronze_mix"
+    },
+    "result": "malleable:bronze_nugget",
+    "experience": 0.7,
+    "cookingtime": 200
+}

@@ -11,6 +11,8 @@ scratchpad.txt
 /run
 /classes
 *.iml
+*.ipr
+*.iws
 *.launch
 /buildSrc/build
 /buildSrc/src/test/resources/plugin-classpath.txt

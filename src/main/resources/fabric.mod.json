@@ -1,0 +1,22 @@
+{
+    "id": "malleable",
+    "name": "Malleable",
+    "description": "A minecraft mod with an assortment of modifications and content that tries to improve vanilla gameplay.",
+    "version": "@version@",
+    "side": "universal",
+    "languageAdapter": "net.fabricmc.language.kotlin.KotlinLanguageAdapter",
+    "initializers": [
+        "com.hea3ven.malleable.fabric.MalleableFabricModInitializer"
+    ],
+    "mixins": {
+        "common": []
+    },
+    "requires": {
+        "fabric": {
+            "version": "@version_fabric@"
+        },
+        "fabric-language-kotlin": {
+            "version": ">=@version_kotlin@"
+        }
+    }
+}

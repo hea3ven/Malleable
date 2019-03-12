@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "malleable:steel_nugget"
+    },
+    {
+      "item": "malleable:steel_nugget"
+    },
+    {
+      "item": "malleable:tungsten_nugget"
+    }
+  ],
+  "result": {
+    "item": "malleable:mushetsteel_mix",
+    "count": 3
+  }
+}

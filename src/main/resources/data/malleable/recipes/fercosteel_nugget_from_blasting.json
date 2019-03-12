@@ -1,0 +1,9 @@
+{
+    "type": "minecraft:blasting",
+    "ingredient": {
+        "item": "malleable:fercosteel_mix"
+    },
+    "result": "malleable:fercosteel_nugget",
+    "experience": 0.7,
+    "cookingtime": 100
+}

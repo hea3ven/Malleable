@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "malleable:tungsten_ingot"
+    }
+  ],
+  "result": {
+    "item": "malleable:tungsten_nugget",
+    "count": 9
+  }
+}

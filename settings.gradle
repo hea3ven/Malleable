@@ -1,0 +1,15 @@
+pluginManagement {
+    repositories {
+        mavenCentral()
+        jcenter()
+        maven {
+            name = "Hea3veN"
+            url = "http://mribecky.com.ar/maven"
+        }
+        maven {
+            name = 'Fabric'
+            url = 'http://maven.fabricmc.net/'
+        }
+        gradlePluginPortal()
+    }
+}

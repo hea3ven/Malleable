@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "malleable:fercosteel_ingot"
+    }
+  ],
+  "result": {
+    "item": "malleable:fercosteel_nugget",
+    "count": 9
+  }
+}

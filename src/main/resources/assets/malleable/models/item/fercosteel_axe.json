@@ -1,8 +1,7 @@
 {
     "parent": "item/handheld",
     "textures": {
-        "layer0": "malleable:items/axe_handle",
-        "layer1": "malleable:items/axe_head"
+        "layer0": "malleable:items/fercosteel_axe"
     },
     "display": {
         "thirdperson": {

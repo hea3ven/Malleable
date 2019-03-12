@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "steel_ingot",
+  "ingredients": [
+    {
+      "item": "malleable:steel_block"
+    }
+  ],
+  "result": {
+    "item": "malleable:steel_ingot",
+    "count": 9
+  }
+}

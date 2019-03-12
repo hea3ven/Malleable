@@ -1,0 +1,9 @@
+{
+    "type": "minecraft:blasting",
+    "ingredient": {
+        "item": "malleable:%s"
+    },
+    "result": "malleable:%s_nugget",
+    "experience": 0.7,
+    "cookingtime": 100
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "%s_ingot",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "malleable:%s_nugget"
+    }
+  },
+  "result": {
+    "item": "malleable:%s_ingot"
+  }
+}

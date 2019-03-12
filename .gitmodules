@@ -1,3 +1,0 @@
-[submodule "src/bootstrap/java"]
-	path = src/bootstrap/java
-	url = git@github.com:hea3ven/bootstrap.git

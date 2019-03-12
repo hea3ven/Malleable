@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "malleable:steel_nugget"
+    },
+    {
+      "item": "malleable:steel_nugget"
+    },
+    {
+      "item": "malleable:steel_nugget"
+    },
+    {
+      "item": "malleable:cobalt_nugget"
+    }
+  ],
+  "result": {
+    "item": "malleable:fercosteel_mix",
+    "count": 4
+  }
+}

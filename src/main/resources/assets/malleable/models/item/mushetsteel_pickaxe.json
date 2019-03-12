@@ -1,8 +1,7 @@
 {
     "parent": "item/handheld",
     "textures": {
-        "layer0": "malleable:items/pickaxe_handle",
-        "layer1": "malleable:items/pickaxe_head"
+        "layer0": "malleable:items/mushetsteel_pickaxe"
     },
     "display": {
         "thirdperson": {

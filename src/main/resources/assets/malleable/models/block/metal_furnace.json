@@ -1,8 +1,0 @@
-{
-	"parent": "minecraft:block/orientable",
-	"textures": {
-		"top": "minecraft:blocks/brick",
-		"side": "minecraft:blocks/brick",
-		"front": "malleable:blocks/metal_furnace"
-	}
-}
